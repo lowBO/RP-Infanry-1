@@ -9,7 +9,7 @@
 
 * 每辆步兵包含云台、底盘、超电控制主控共计3主控，通过system.h中的Master宏定义控制主控ID**（不包括超电控制主控代码）**
 
-
+* 步兵操作思维导图放在doc文件夹中
 
 **云台代码功能：**
 
@@ -47,7 +47,7 @@ Master = MASTER_DOWN
 
 ### **文件目录结构、代码内容等说明：**
 
-![代码目录](D:\电控开源\麦轮开源\rm-infantry-1\picture\代码目录.png)
+![代码目录](picture\代码目录.png)
 
 * 系统驱动部分的代码主要为基础外设驱动、stm32底层驱动程序以及外设参数初始化程序
 
@@ -57,7 +57,7 @@ Master = MASTER_DOWN
 
 * 任务调度表位于APP文件夹中的FreeRTOS_Init.c文件中
 
-![image-20210828163544540](C:\Users\hp\AppData\Roaming\Typora\typora-user-images\image-20210828163544540.png)
+![头文件](picture\头文件.png)
 
 * 在“系统驱动”部分的代码中有包含了部分中间层软件库
 
@@ -69,15 +69,15 @@ Master = MASTER_DOWN
 
 ### 程序架构
 
-![软件框图](D:\电控开源\麦轮开源\rm-infantry-1\picture\软件框图.png)
+![软件框图](picture\软件框图.png)
 
 ### 通信数据流线路框图
 
-![通信线路框图](D:\电控开源\麦轮开源\rm-infantry-1\picture\通信线路框图.png)
+![通信线路框图](picture/通信线路框图.png)
 
 ### 供电线路框图和裁判系统连接图
 
-![供电框图和裁判系统](D:\电控开源\麦轮开源\rm-infantry-1\picture\供电框图和裁判系统.png)
+![供电框图和裁判系统](picture/供电框图和裁判系统.png)
 
 # E 重要代码原理介绍与理论支持分析
 
@@ -87,27 +87,31 @@ Master = MASTER_DOWN
 
 ​		陀螺仪反馈速度值经过滤波后反应会比Yaw轴电机速度反馈更快，变化实时性高，能够使底盘更实时地跟随云台运动。
 
+​		**具体代码位于Chassis.c中文件**
+
 ### 2、系统控制命令捕捉
 
-![系统控制命令捕捉](D:\电控开源\麦轮开源\rm-infantry-1\picture\系统控制命令捕捉.png)
+![系统控制命令捕捉](picture\系统控制命令捕捉.png)
 
 ​		每个函数当中不存在轮询，执行速度较快，可以实时、同时（执行速度在1ms内）捕捉各个按键的反应值，系统采用状态检测后上报系统，再下发各个设备树任务响应状态的写法，在每个按键函数中能够清楚反映操作意图，以Z按键为例：
 
-![Z按键为例](D:\电控开源\麦轮开源\rm-infantry-1\picture\Z按键为例.png)![image-20210829133329457](C:\Users\hp\AppData\Roaming\Typora\typora-user-images\image-20210829133329457.png)
+![Z按键为例](picture\Z按键为例.png)![按键状态枚举](picture\按键状态枚举.png)
 
 ​		每个按键的5个状态在不同功能操作上发挥不同的作用，这使得后期采纳操作手反馈、商讨做出修改更加快捷、可观、有规划，并且能够保证代码整洁性和稳定性。
 
 ​		同样，对于遥控器的控制也有类似的操作，**具体程序均位于Remote.c中**。
 
+
+
 ### 3、PID算法
 
 ​		采用位置式PID算法
 
-![image-20210829134526686](C:\Users\hp\AppData\Roaming\Typora\typora-user-images\image-20210829134526686.png)
+![PID算法图](picture\PID算法图.png)
 
 ​		**对应算法代码位于PID.c文件中**
 
-![image-20210829134601909](C:\Users\hp\AppData\Roaming\Typora\typora-user-images\image-20210829134601909.png)
+![PID算法](picture\PID算法.png)
 
 ### 4、摩擦轮
 
@@ -117,7 +121,7 @@ Master = MASTER_DOWN
 
 # F 程序层级
 
-![程序架构](D:\电控开源\麦轮开源\rm-infantry-1\picture\程序架构.png)
+![程序架构](picture/程序架构.png)
 
 
 
