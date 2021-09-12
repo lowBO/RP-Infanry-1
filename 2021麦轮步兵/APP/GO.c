@@ -30,8 +30,6 @@
 #include "Function.h"
 #include "FreeRTOS_Init.h"
 
-uint32_t currentTime = 0;
-
 /**
  * @brief 设备层初始化
  * @param 
@@ -57,6 +55,7 @@ void Function_Init(void)
  */
 void System_Init(void)
 {
+	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_4);
 	Delay_init(168);// 1ms Systick
 	CRC_init();	
 	CAN1_Init();

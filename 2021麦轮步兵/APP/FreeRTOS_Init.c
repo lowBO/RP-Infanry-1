@@ -81,7 +81,7 @@ extern void System_Start_Task(void *p_arg);
 //--- Start Task ---//
 // Defined in the init.c file => #define START_TASK_PRIO	1
 //--- System State Task ---//
-#define SYSTEM_STATE_TASK_PRIO				1		// 任务优先级
+#define SYSTEM_STATE_TASK_PRIO				3		// 任务优先级
 #define SYSTEM_STATE_STK_SIZE				256		// 任务堆栈大小
 TaskHandle_t SystemState_Task_Handler;				// 任务句柄
 extern void SYSTEM_STATE_TASK(void *p_arg);
@@ -106,42 +106,42 @@ extern void RIFLE_TASK(void *p_arg);
 TaskHandle_t Module_Task_Handler;						// 任务句柄
 extern void MODULE_TASK(void *p_arg);
 //--- Vision Task ---//
-#define VISION_TASK_PRIO					1		// 任务优先级
+#define VISION_TASK_PRIO					3		// 任务优先级
 #define VISION_STK_SIZE						256		// 任务堆栈大小
 TaskHandle_t Vision_Task_Handler;					// 任务句柄
 extern void VISION_TASK(void *p_arg);
 //--- Imu Task ---//
-#define IMU_TASK_PRIO						1		// 任务优先级
+#define IMU_TASK_PRIO						3		// 任务优先级
 #define IMU_STK_SIZE						256		// 任务堆栈大小
 TaskHandle_t Imu_Task_Handler;						// 任务句柄
 extern void IMU_TASK(void *p_arg);
 //--- PID Task ---//
-#define PID_TASK_PRIO						3		// 任务优先级
+#define PID_TASK_PRIO						1		// 任务优先级
 #define PID_STK_SIZE						256		// 任务堆栈大小
 TaskHandle_t Pid_Task_Handler;						// 任务句柄
 extern void PID_TASK(void *p_arg);
 //--- Masterlink Task ---//
-#define MASTERLINK_TASK_PRIO						1		// 任务优先级
+#define MASTERLINK_TASK_PRIO						3		// 任务优先级
 #define MASTERLINK_STK_SIZE						256		// 任务堆栈大小
 TaskHandle_t Masterlink_Task_Handler;						// 任务句柄
 extern void MASTERLINK_TASK(void *p_arg);
 //--- CUSUI Task ---//
-#define CUSUI_TASK_PRIO						1		// 任务优先级
+#define CUSUI_TASK_PRIO						3		// 任务优先级
 #define CUSUI_STK_SIZE						256		// 任务堆栈大小
 TaskHandle_t CUSUI_Task_Handler;						// 任务句柄
 extern void CUSUI_TASK(void *p_arg);
 //--- ZIGBEE Task ---//
-#define ZIGBEE_TASK_PRIO					1		// 任务优先级
+#define ZIGBEE_TASK_PRIO					3		// 任务优先级
 #define ZIGBEE_STK_SIZE						256		// 任务堆栈大小
 TaskHandle_t ZIGBEE_Task_Handler;						// 任务句柄
 extern void ZIGBEE_TASK(void *p_arg);
 //--- TRIGGER Task ---//
-#define TRIGGER_TASK_PRIO					1		// 任务优先级
+#define TRIGGER_TASK_PRIO					3		// 任务优先级
 #define TRIGGER_STK_SIZE						256		// 任务堆栈大小
 TaskHandle_t TRIGGER_Task_Handler;						// 任务句柄
 extern void VISION_TRIGGER_TASK(void *p_arg);
 //--- SONIC Task ---//
-#define SONIC_TASK_PRIO					1		// 任务优先级
+#define SONIC_TASK_PRIO					3		// 任务优先级
 #define SONIC_STK_SIZE						256		// 任务堆栈大小
 TaskHandle_t SONIC_Task_Handler;						// 任务句柄
 extern void SONIC_TASK(void *p_arg);
